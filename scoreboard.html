@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard</title>
+  <script src="jquery.js"></script>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <h1 class="text-center board-label-lg" id="titleDisplay">1st CLSF-EC 3v3 TOURNAMENT</h1>
+      <hr />
+    </div> <!-- /title row -->
+    <div class="row">
+      <div class="col-3 text-center">
+        <span class="text-center board-label-lg" id="team1NameDisplay"></span>
+        <h4 class="text-center digitized board-number-md number-main" id="team1ScoreDisplay">0</h4>
+        <div class="row">
+          <div class="col-6 text-center">
+            <span class="text-center board-label-md">Timeouts:</span>
+            <h4 class="text-center digitized board-number-sm number-sub" id="team1TimeoutsDisplay">0</h4>
+          </div>
+          <div class="col-6 text-center">
+            <span class="text-center board-label-md">Fouls:</span>
+            <h4 class="text-center digitized board-number-sm number-sub" id="team1FoulsDisplay">0</h4>
+          </div>
+        </div>
+      </div> <!-- /team 1 name & score -->
+      <div class="col-6">
+        <h1 class="text-center digitized board-number-lg number-main" id="timerDisplay"></h1>
+        <div class="row">
+          <div class="col-6">
+            <h2 class="text-center board-label-md">SHOT CLOCK</h2>
+            <h3 class="text-center digitized board-number-sm number-attention" id="shotClockDisplay">0</h3>
+          </div>
+          <div class="col-6">
+            <h2 class="text-center board-label-md">PERIOD</h2>
+            <h3 class="text-center digitized board-number-sm number-sub" id="periodDisplay">0</h3>
+          </div>
+        </div>
+      </div> <!-- /timer & period -->
+      <div class="col-3 text-center">
+        <span class="text-center board-label-lg" id="team2NameDisplay"></span>
+        <h4 class="text-center digitized board-number-md number-main" id="team2ScoreDisplay">0</h4>
+        <div class="row">
+          <div class="col-6 text-center">
+            <span class="board-label-md">Timeouts:</span>
+            <h4 class="digitized board-number-sm number-sub" id="team2TimeoutsDisplay">0</h4>
+          </div> <!-- team 2 timeouts -->
+          <div class="col-6 text-center">
+            <span class="board-label-md">Fouls:</span>
+            <h4 class="digitized board-number-sm number-sub" id="team2FoulsDisplay">0</h4>
+          </div> <!-- /team 2 team fouls -->
+        </div> <!-- /team 2 timeouts & team foul row -->
+      </div> <!-- /team 2 name & score -->
+    </div>
+  </div>
+  <script>
+    function updateValues(curVals) {
+      const title = $("#titleDisplay");
+      const timer = $("#timerDisplay");
+      const shotClock = $("#shotClockDisplay");
+      const period = $("#periodDisplay");
+      const team1Name = $("#team1NameDisplay");
+      const team1Score = $("#team1ScoreDisplay");
+      const team1Timeouts = $("#team1TimeoutsDisplay");
+      const team1Fouls = $("#team1FoulsDisplay");
+      const team2Name = $("#team2NameDisplay");
+      const team2Score = $("#team2ScoreDisplay");
+      const team2Timeouts = $("#team2TimeoutsDisplay");
+      const team2Fouls = $("#team2FoulsDisplay");
+      title.text(curVals.titleDisplay);
+      timer.text(curVals.timerDisplay);
+      shotClock.text(curVals.shotClockDisplay);
+      period.text(curVals.periodDisplay);
+      team1Name.text(curVals.team1.name);
+      team1Score.text(curVals.team1.score);
+      team1Timeouts.text(curVals.team1.timeouts);
+      team1Fouls.text(curVals.team1.fouls);
+      team2Name.text(curVals.team2.name);
+      team2Score.text(curVals.team2.score);
+      team2Timeouts.text(curVals.team2.timeouts);
+      team2Fouls.text(curVals.team2.fouls);
+    }
+  </script>
+</body>
+</html>
+
+
+
+

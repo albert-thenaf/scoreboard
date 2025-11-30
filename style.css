@@ -1,0 +1,89 @@
+@font-face {
+    font-family: digital;
+    src: url("fonts/digital-7.ttf");
+}
+body {
+    background: #0a53be;
+}
+
+.digitized {
+    font-family: digital;
+    background: #000;
+}
+
+.number-main {
+    color: #fd7e14;
+}
+
+.number-sub {
+    color: green;
+}
+
+.number-attention {
+    color: red;
+}
+
+.board-number-lg {
+    font-size: 30rem;
+    line-height: 1;
+}
+
+.board-number-md {
+    font-size: 26.5rem;
+    line-height: 1;
+}
+
+.board-number-sm {
+    font-size: 22.5rem;
+    line-height: 1;
+}
+
+.board-label-lg {
+    font-size: 5rem;
+    line-height: 1;
+    font-weight: bold;
+    color: #fff;
+}
+
+.board-label-md {
+    font-size: 3rem;
+    line-height: 1;
+    font-weight: bold;
+    color: #fff;
+}
+
+.number-lg {
+    font-size: 20rem;
+    line-height: 1;
+}
+
+.number-md {
+    font-size: 15rem;
+    line-height: 1;
+}
+
+.number-sm {
+    font-size: 10rem;
+}
+
+.label-lg {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.label-lg-black {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+}
+
+.label-md {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-group > .remote {
+    padding: 20px;
+}

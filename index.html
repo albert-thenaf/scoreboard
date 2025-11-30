@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Controls</title>
+        <script src="jquery.js"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+        <link href="fontawesome/css/all.min.css" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-10 offset-1">
+                    <h1 class="text-center label-lg" id="titleDisplay">title</h1>
+                </div>
+                <div class="col-1 text-center align-bottom">
+                    <button id="remoteOnIcon" onclick="turnOffRemote()" class="btn btn-success btn-sm" type="button"><i class="fa-solid fa-keyboard"></i></button>
+                    <button id="remoteOffIcon" onclick="turnOnRemote()" class="btn btn-danger btn-sm" type="button"><i class="fa-solid fa-keyboard"></i></button>
+                    <button class="btn btn-secondary btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa fa-gear"></i></button>
+                </div>
+                <hr />
+            </div> <!-- /title row -->
+            <div class="row">
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <div class="card bg-primary text-bg-secondary">
+                                <div class="card-header">
+                                    <span class="text-center label-lg" id="team1NameDisplay"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="text-center digitized number-md number-main" id="team1Points">0</h4>
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <span class="text-center label-md">Timeouts:</span>
+                                            <h4 class="text-center digitized number-sm number-sub" id="team1Timeouts">0</h4>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span class="text-center label-md">Fouls:</span>
+                                            <h4 class="text-center digitized number-sm number-sub" id="team1Fouls">0</h4>
+                                        </div>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Points</th>
+                                            <th>Timeouts</th>
+                                            <th>Team Fouls</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updatePoints('team1Points', 1)">+1</button>
+                                                    <button type="button" class="btn btn-info" onclick="updatePoints('team1Points', 2)">+2</button>
+                                                    <button type="button" class="btn btn-primary" onclick="updatePoints('team1Points', 3)">+3</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updatePoints('team1Points', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updateTimeout('team1Timeouts', 1)">+1</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updateTimeout('team1Timeouts', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updateTeamFoul('team1Fouls', 1)">+1</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updateTeamFoul('team1Fouls', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 text-center">
+                            <div class="card bg-danger text-bg-secondary">
+                                <div class="card-header">
+                                    <span class="text-center label-lg" id="team2NameDisplay"></span>
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="text-center digitized number-md number-main" id="team2Points">0</h4>
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <span class="label-md">Timeouts:</span>
+                                            <h4 class="digitized number-sm number-sub" id="team2Timeouts">0</h4>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <span class="label-md">Fouls:</span>
+                                            <h4 class="digitized number-sm number-sub" id="team2Fouls">0</h4>
+                                        </div>
+                                    </div>
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Points</th>
+                                            <th>Timeouts</th>
+                                            <th>Team Fouls</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updatePoints('team2Points', 1)">+1</button>
+                                                    <button type="button" class="btn btn-info" onclick="updatePoints('team2Points', 2)">+2</button>
+                                                    <button type="button" class="btn btn-primary" onclick="updatePoints('team2Points', 3)">+3</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updatePoints('team2Points', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updateTimeout('team2Timeouts', 1)">+1</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updateTimeout('team2Timeouts', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="btn-group btn-group">
+                                                    <button type="button" class="btn btn-secondary" onclick="updateTeamFoul('team2Fouls', 1)">+1</button>
+                                                    <button type="button" class="btn btn-danger" onclick="updateTeamFoul('team2Fouls', -1)">-1</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="btn-group btn-group-lg">
+                            <button type="button" class="btn btn-danger remote" onclick="playSound('buzzer')"><i class="fas fa-volume-high"></i></button>
+                            <button type="button" class="btn btn-warning remote" onclick="playSound('horn')"><i class="fas fa-bullhorn"></i></button>
+                        </div>
+                        <audio id="buzzer">
+                            <source src="audio/buzzer.mp3" type="audio/mp3">
+                        </audio>
+                        <audio id="horn">
+                            <source src="audio/og_airHorn_trimmed.mp3" type="audio/mp3">
+    <!--                        <source src="audio/horn.mp3" type="audio/mp3">-->
+                        </audio>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card text-bg-secondary">
+                                <div class="card-body">
+                                    <h1 class="text-center digitized number-lg number-main" id="timer"></h1>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="btn-group btn-group-lg">
+                                        <button type="button" class="btn btn-lg btn-success remote" onclick="startTimer()"><i class="fas fa-play"></i></button>
+                                        <button type="button" class="btn btn-lg btn-warning remote" onclick="pauseTimer()"><i class="fas fa-pause"></i></button>
+                                        <button type="button" class="btn btn-lg btn-light remote" onclick="resetTimer()"><i class="fas fa-rotate-right"></i></button>
+                                    </div>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="card text-bg-secondary">
+                                        <div class="card-header">
+                                            <h2 class="text-center label-md">SHOT CLOCK</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <h3 class="text-center digitized number-sm number-attention" id="shotClock">0</h3>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <div class="btn-group btn-group-lg">
+                                                <button type="button" class="btn btn-warning remote" onclick="refreshShotClock()"><i class="fas fa-repeat"></i></button>
+                                                <button type="button" class="btn btn-danger remote" onclick="resetShotClock()"><i class="fas fa-backward"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card text-bg-secondary">
+                                        <div class="card-header">
+                                            <h2 class="text-center label-md">PERIOD</h2>
+                                        </div>
+                                        <div class="card-body">
+                                            <h3 class="text-center digitized number-sm number-sub" id="period">0</h3>
+                                        </div>
+                                        <div class="card-footer text-center">
+                                            <div class="btn-group btn-group-lg">
+                                                <button type="button" class="btn btn-warning remote" onclick="updatePeriod(1)"><i class="fas fa-plus"></i></button>
+                                                <button type="button" class="btn btn-danger remote" onclick="updatePeriod(-1)"><i class="fas fa-minus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- /timer, shot clock, & period -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasLabel"><i class="fas fa-gear"></i>&nbsp;Settings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-secondary" onclick="openScoreboard()">Open Scoreboard</button>
+                        <button class="btn btn-success" onclick="startScoreboard()">Update Scoreboard</button>
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label">Title:</label>
+                        <input class="form-control" type="text" id="titleInput" value="1ST CLSF-EC 3v3 BASKETBALL TOURNAMENT" />
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label">Minutes:</label>
+                        <input class="form-control" type="number" step="none" min="0" value="12" id="minutesInput" />
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Seconds:</label>
+                        <input class="form-control" type="number" step="none" min="0" value="0" id="secondsInput" />
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label">Shot Clock:</label>
+                        <input class="form-control" type="number" step="none" min="0" value="24" id="shotClockInput" />
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col-6">
+                        <label class="form-label">Home</label>
+                        <input class="form-control" type="text" id="team1Name" value="Team 1" />
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">Away</label>
+                        <input class="form-control" type="text" id="team2Name" value="Team 2" />
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-warning" onclick="reset()"><i class="fas fa-repeat"></i>&nbsp;Reset Board</button>
+                        <button id="remoteOn" class="btn btn-secondary" onclick="turnOnRemote()"><i class="fa-solid fa-keyboard"></i>&nbsp;Key Listen ON</button>
+                        <button id="remoteOff" class="btn btn-danger" onclick="turnOffRemote()"><i class="fa-solid fa-keyboard"></i>&nbsp;Key Listen OFF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="actions.js"></script>
+    </body>
+</html>
