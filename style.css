@@ -52,6 +52,30 @@ body {
     color: #fff;
 }
 
+.number-xlg {
+    font-size: 35rem;
+    line-height: 1;
+}
+
+#timer, #timerDisplay {
+    font-size: 50vh;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#team1Points, #team2Points, #period,
+#team1ScoreDisplay, #team2ScoreDisplay, #periodDisplay{
+    font-size: 20vh;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#titleDisplay {
+    font-size: 5vh;
+}
+
 .number-lg {
     font-size: 20rem;
     line-height: 1;
