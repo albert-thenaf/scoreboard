@@ -16,13 +16,14 @@ let period = 1;
 let scoreboard;
 let scoreboardWindow;
 let remoteStatus = false;
+let showButtons = false;
 
 init();
 
 function init() {
     // main
     updateText("titleDisplay", "titleInput");
-    resetTimer(); resetShotClock();
+    resetTimer(); resetShotClock(); checkButtonVisibility();
     initValueByElement('period', 1);
     // team 1
     updateText("team1NameDisplay", "team1Name");
@@ -34,6 +35,18 @@ function init() {
     initValueByElement('team2Points', 0);
     initValueByElement('team2Timeouts', 2);
     initValueByElement('team2Fouls', 0);
+}
+
+function checkButtonVisibility() {
+    if (showButtons) {
+        $(".sb-controls").show();
+        $('#sbControlOff').show();
+        $('#sbControlOn').hide();
+    } else {
+        $(".sb-controls").hide();
+        $('#sbControlOff').hide();
+        $('#sbControlOn').show();
+    }
 }
 
 function reset() {
@@ -95,9 +108,7 @@ function updateTimerDisplay() {
     timerDisplay.text(`${minutes}:${seconds < 10 ? '0' : ''}${seconds}`);
     if (minutes === 0 && seconds === 0) {
         clearInterval(timer);
-        setTimeout(function() {
-            playSound('buzzer');
-        }, 700);
+        playSound('buzzer');
     }
 }
 
@@ -146,7 +157,7 @@ function updateShotClockDisplay() {
     if (shotClockSeconds === 0) {
         clearInterval(shotClock);
         setTimeout(function() {
-            playSound('buzzer');
+            // playSound('buzzer');
         }, 700);
         shotClockStatus = false;
     }
@@ -237,7 +248,7 @@ function updateScoreboard() {
             fouls: $("#team2Fouls").text()
         }
         const myCurVals = {titleDisplay, timerDisplay, shotClockDisplay, periodDisplay, team1, team2};
-        scoreboardWindow.updateValues(myCurVals);
+        scoreboardWindow.postMessage(myCurVals, '*');
     } else {
         alert('Scoreboard is not up yet')
     }
@@ -283,6 +294,16 @@ function turnOffRemote() {
     $('#remoteOff').hide();
     $('#remoteOffIcon').show();
     remoteStatus = false;
+}
+
+function showSbControls() {
+    showButtons = true;
+    checkButtonVisibility();
+}
+
+function hideSbControls() {
+    showButtons = false;
+    checkButtonVisibility();
 }
 
 $(document).ready(function() {
