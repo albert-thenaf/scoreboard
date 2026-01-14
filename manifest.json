@@ -1,0 +1,8 @@
+{
+  "short_name": "MySite",
+  "name": "My Fullscreen Site",
+  "display": "standalone",
+  "start_url": "index.html",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
